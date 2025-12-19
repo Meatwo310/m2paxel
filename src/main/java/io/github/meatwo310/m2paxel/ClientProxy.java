@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package io.github.meatwo310.m2paxel;
 
 public class ClientProxy extends CommonProxy {
 
