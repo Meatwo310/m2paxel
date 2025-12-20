@@ -35,4 +35,12 @@
  */
 dependencies {
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.69-GTNH:dev")
+
+    runtimeOnlyNonPublishable("curse.maven:waila-73488:2230518")
+    runtimeOnlyNonPublishable("curse.maven:wawla-224712:2298772")
+    runtimeOnlyNonPublishable("curse.maven:waila-harvestability-79287:2270923")
+
+    runtimeOnlyNonPublishable("curse.maven:forge-multi-part-229323:2242993")
+    runtimeOnlyNonPublishable("curse.maven:mekanism-268560:2475797")
+    runtimeOnlyNonPublishable("curse.maven:mekanism-tools-268567:2475793")
 }
