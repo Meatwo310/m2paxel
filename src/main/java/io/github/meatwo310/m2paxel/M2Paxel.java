@@ -1,5 +1,6 @@
 package io.github.meatwo310.m2paxel;
 
+import io.github.meatwo310.m2paxel.common.CommonProxy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,8 +18,8 @@ public class M2Paxel {
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @SidedProxy(
-        clientSide = "io.github.meatwo310.m2paxel.ClientProxy",
-        serverSide = "io.github.meatwo310.m2paxel.CommonProxy")
+        clientSide = "io.github.meatwo310.m2paxel.client.ClientProxy",
+        serverSide = "io.github.meatwo310.m2paxel.common.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

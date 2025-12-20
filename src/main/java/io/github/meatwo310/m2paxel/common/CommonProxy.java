@@ -1,4 +1,4 @@
-package io.github.meatwo310.m2paxel;
+package io.github.meatwo310.m2paxel.common;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
