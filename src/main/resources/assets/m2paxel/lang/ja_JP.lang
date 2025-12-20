@@ -1,5 +1,5 @@
-item.m2paxel.wood.name=木のパクセル
-item.m2paxel.stone.name=石のパクセル
-item.m2paxel.iron.name=鉄のパクセル
-item.m2paxel.gold.name=金のパクセル
-item.m2paxel.diamond.name=ダイヤのパクセル
+item.m2paxel.wooden_paxel.name=木のパクセル
+item.m2paxel.stone_paxel.name=石のパクセル
+item.m2paxel.iron_paxel.name=鉄のパクセル
+item.m2paxel.golden_paxel.name=金のパクセル
+item.m2paxel.diamond_paxel.name=ダイヤのパクセル
