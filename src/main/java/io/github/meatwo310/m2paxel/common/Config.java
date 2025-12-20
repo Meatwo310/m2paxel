@@ -1,11 +1,10 @@
 package io.github.meatwo310.m2paxel.common;
 
-import java.io.File;
-
 import net.minecraftforge.common.config.Configuration;
 
-public class Config {
+import java.io.File;
 
+public class Config {
     public static String greeting = "Hello World";
 
     public static void synchronizeConfiguration(File configFile) {
