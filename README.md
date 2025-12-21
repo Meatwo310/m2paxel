@@ -4,10 +4,6 @@
 
 ![5 Paxels](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/5-paxels.png?raw=true)
 
----
-
-[English](#english) | [日本語](#日本語)
-
 ## English
 
 ### Overview
