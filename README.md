@@ -2,7 +2,7 @@
 
 [GitHub](https://github.com/Meatwo310/m2paxel) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/m2paxel) | [Modrinth](https://modrinth.com/mod/m2paxel)
 
-![5-paxels](docs/5-paxels.png)
+![5 Paxels](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/5-paxels.png?raw=true)
 
 ---
 
@@ -35,11 +35,11 @@ M2Paxel is a mod that adds "Paxel" - a multi-tool combining Sword, Pickaxe, Axe,
 
 <summary>Crafting Recipes</summary>
 
-![wooden_paxel](docs/wooden_paxel.png)
-![stone_paxel](docs/stone_paxel.png)
-![iron_paxel](docs/iron_paxel.png)
-![golden_paxel](docs/golden_paxel.png)
-![diamond_paxel](docs/diamond_paxel.png)
+![Wooden Paxel](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/wooden_paxel.png?raw=true)
+![Stone Paxel](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/stone_paxel.png?raw=true)
+![Iron Paxel](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/iron_paxel.png?raw=true)
+![Golden Paxel](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/golden_paxel.png?raw=true)
+![Diamond Paxel](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/diamond_paxel.png?raw=true)
 
 </details>
 
@@ -120,11 +120,11 @@ M2Paxelは、剣、ツルハシ、斧、シャベルの4つのツールを1つ�
 
 <summary>レシピ</summary>
 
-![wooden_paxel](docs/wooden_paxel.png)
-![stone_paxel](docs/stone_paxel.png)
-![iron_paxel](docs/iron_paxel.png)
-![golden_paxel](docs/golden_paxel.png)
-![diamond_paxel](docs/diamond_paxel.png)
+![木のパクセル](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/wooden_paxel.png?raw=true)
+![石のパクセル](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/stone_paxel.png?raw=true)
+![鉄のパクセル](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/iron_paxel.png?raw=true)
+![金のパクセル](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/golden_paxel.png?raw=true)
+![ダイヤのパクセル](https://github.com/Meatwo310/m2paxel/blob/1.7.10-forge/docs/diamond_paxel.png?raw=true)
 
 </details>
 
