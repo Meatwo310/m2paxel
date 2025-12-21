@@ -8,8 +8,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import io.github.meatwo310.m2paxel.M2Paxel;
 import io.github.meatwo310.m2paxel.Tags;
 import io.github.meatwo310.m2paxel.common.item.M2PaxelItems;
-import net.minecraft.item.Item;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -35,63 +35,6 @@ public class CommonProxy {
     }
 
     private static void registerPaxelRecipe() {
-//        Item[][] recipes = new Item[][]{
-//            {
-//                M2PaxelItems.WOODEN_PAXEL,
-//                Items.wooden_pickaxe,
-//                Items.wooden_axe,
-//                Items.wooden_shovel,
-//                Items.wooden_sword
-//            },
-//            {
-//                M2PaxelItems.STONE_PAXEL,
-//                Items.stone_pickaxe,
-//                Items.stone_axe,
-//                Items.stone_shovel,
-//                Items.stone_sword
-//            },
-//            {
-//                M2PaxelItems.IRON_PAXEL,
-//                Items.iron_pickaxe,
-//                Items.iron_axe,
-//                Items.iron_shovel,
-//                Items.iron_sword
-//            },
-//            {
-//                M2PaxelItems.GOLDEN_PAXEL,
-//                Items.golden_pickaxe,
-//                Items.golden_axe,
-//                Items.golden_shovel,
-//                Items.golden_sword
-//            },
-//            {
-//                M2PaxelItems.DIAMOND_PAXEL,
-//                Items.diamond_pickaxe,
-//                Items.diamond_axe,
-//                Items.diamond_shovel,
-//                Items.diamond_sword
-//            }
-//        };
-//
-//        for (Item[] recipe : recipes) {
-//            GameRegistry.addShapedRecipe(
-//                // output
-//                new ItemStack(recipe[0]),
-//
-//                // pattern
-//                "W P",
-//                " X ",
-//                "S A",
-//
-//                // ingredients
-//                'X', new ItemStack(Items.stick),
-//                'P', new ItemStack(recipe[1]), // pickaxe
-//                'A', new ItemStack(recipe[2]), // axe
-//                'S', new ItemStack(recipe[3]), // shovel
-//                'W', new ItemStack(recipe[4])  // sword
-//            );
-//        }
-
         GameRegistry.addShapelessRecipe(
             new ItemStack(M2PaxelItems.WOODEN_PAXEL),
             ignoreDamage(Items.wooden_sword),
