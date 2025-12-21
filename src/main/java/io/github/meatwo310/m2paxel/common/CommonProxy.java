@@ -8,8 +8,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import io.github.meatwo310.m2paxel.M2Paxel;
 import io.github.meatwo310.m2paxel.Tags;
 import io.github.meatwo310.m2paxel.common.item.M2PaxelItems;
+import net.minecraft.item.Item;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class CommonProxy {
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
@@ -92,38 +94,38 @@ public class CommonProxy {
 
         GameRegistry.addShapelessRecipe(
             new ItemStack(M2PaxelItems.WOODEN_PAXEL),
-            Items.wooden_sword,
-            Items.wooden_pickaxe,
-            Items.wooden_shovel,
-            Items.wooden_axe
+            ignoreDamage(Items.wooden_sword),
+            ignoreDamage(Items.wooden_pickaxe),
+            ignoreDamage(Items.wooden_shovel),
+            ignoreDamage(Items.wooden_axe)
         );
         GameRegistry.addShapelessRecipe(
             new ItemStack(M2PaxelItems.STONE_PAXEL),
-            Items.stone_sword,
-            Items.stone_pickaxe,
-            Items.stone_shovel,
-            Items.stone_axe
+            ignoreDamage(Items.stone_sword),
+            ignoreDamage(Items.stone_pickaxe),
+            ignoreDamage(Items.stone_shovel),
+            ignoreDamage(Items.stone_axe)
         );
         GameRegistry.addShapelessRecipe(
             new ItemStack(M2PaxelItems.IRON_PAXEL),
-            Items.iron_sword,
-            Items.iron_pickaxe,
-            Items.iron_shovel,
-            Items.iron_axe
+            ignoreDamage(Items.iron_sword),
+            ignoreDamage(Items.iron_pickaxe),
+            ignoreDamage(Items.iron_shovel),
+            ignoreDamage(Items.iron_axe)
         );
         GameRegistry.addShapelessRecipe(
             new ItemStack(M2PaxelItems.GOLDEN_PAXEL),
-            Items.golden_sword,
-            Items.golden_pickaxe,
-            Items.golden_shovel,
-            Items.golden_axe
+            ignoreDamage(Items.golden_sword),
+            ignoreDamage(Items.golden_pickaxe),
+            ignoreDamage(Items.golden_shovel),
+            ignoreDamage(Items.golden_axe)
         );
         GameRegistry.addShapelessRecipe(
             new ItemStack(M2PaxelItems.DIAMOND_PAXEL),
-            Items.diamond_sword,
-            Items.diamond_pickaxe,
-            Items.diamond_shovel,
-            Items.diamond_axe
+            ignoreDamage(Items.diamond_sword),
+            ignoreDamage(Items.diamond_pickaxe),
+            ignoreDamage(Items.diamond_shovel),
+            ignoreDamage(Items.diamond_axe)
         );
     }
 
@@ -132,4 +134,8 @@ public class CommonProxy {
 
     // register server commands in this event handler (Remove if not needed)
     public void serverStarting(FMLServerStartingEvent event) {}
+
+    private static ItemStack ignoreDamage(Item item) {
+        return new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE);
+    }
 }
