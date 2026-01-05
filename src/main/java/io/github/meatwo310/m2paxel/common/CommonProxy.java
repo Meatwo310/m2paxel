@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import io.github.meatwo310.m2paxel.common.event.CommonEvents;
 import io.github.meatwo310.m2paxel.common.item.M2PaxelItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -27,6 +28,7 @@ public class CommonProxy {
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         registerPaxelRecipe();
+        CommonEvents.register();
     }
 
     private static void registerPaxelRecipe() {
