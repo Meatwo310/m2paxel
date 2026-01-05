@@ -8,13 +8,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
 
-public class M2PaxelCommonEvents {
+public class CommonEvents {
     /**
      * Registers the common event handlers.
      * Call this method once during init phase on the common proxy.
      */
     public static void register() {
-        MinecraftForge.EVENT_BUS.register(new M2PaxelCommonEvents());
+        MinecraftForge.EVENT_BUS.register(new CommonEvents());
     }
 
     @SubscribeEvent
