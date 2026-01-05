@@ -5,8 +5,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import io.github.meatwo310.m2paxel.M2Paxel;
-import io.github.meatwo310.m2paxel.Tags;
 import io.github.meatwo310.m2paxel.common.item.M2PaxelItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -17,10 +15,7 @@ public class CommonProxy {
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
-        Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
-
-        M2Paxel.LOG.info(Config.greeting);
-        M2Paxel.LOG.info("I am M2Paxel at version " + Tags.VERSION);
+        CommonConfig.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
         GameRegistry.registerItem(M2PaxelItems.WOODEN_PAXEL, "wooden_paxel");
         GameRegistry.registerItem(M2PaxelItems.STONE_PAXEL, "stone_paxel");
