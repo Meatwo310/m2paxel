@@ -9,6 +9,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
 
 public class CommonEvents {
+    public static final String PREFIX = M2Paxel.MODID + ":";
+
     /**
      * Registers the common event handlers.
      * Call this method once during init phase on the common proxy.
@@ -29,7 +31,7 @@ public class CommonEvents {
         }
 
         String leftRegistryName = Item.itemRegistry.getNameForObject(left);
-        if (!leftRegistryName.startsWith(M2Paxel.MODID + ":")) {
+        if (!leftRegistryName.startsWith(PREFIX)) {
             return;
         }
 
