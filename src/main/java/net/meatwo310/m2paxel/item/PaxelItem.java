@@ -7,6 +7,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.Weapon;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class PaxelItem extends Item {
                 .durability(material.durability() * 4)
                 .repairable(material.repairItems())
                 .enchantable(material.enchantmentValue())
+                .component(DataComponents.WEAPON, new Weapon(2, Weapon.AXE_DISABLES_BLOCKING_FOR_SECONDS))
                 .component(DataComponents.TOOL, tool);
     }
 }
