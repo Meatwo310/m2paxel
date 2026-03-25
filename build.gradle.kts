@@ -17,7 +17,7 @@ object ModConfig {
     const val MOD_ID = "m2paxel"
     const val MOD_NAME = "m2paxel"
     const val MOD_LICENSE = "MIT"
-    const val MOD_VERSION = "0.1.0"
+    const val MOD_VERSION = "1.0.0"
     const val MOD_GROUP_ID = "net.meatwo310.m2paxel"
     const val MOD_AUTHORS = "Meatwo310"
     const val MOD_DESCRIPTION = "Add a multi-tool to free up hotbar space."
