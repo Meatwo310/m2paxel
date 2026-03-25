@@ -1,18 +1,18 @@
-package net.meatwo310.examplemod;
+package net.meatwo310.m2paxel;
 
-import net.meatwo310.examplemod.config.ServerConfig;
+import net.meatwo310.m2paxel.config.ServerConfig;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 
-@Mod(ExampleMod.MODID)
-public class ExampleMod {
-    public static final String MODID = "examplemod";
+@Mod(M2Paxel.MODID)
+public class M2Paxel {
+    public static final String MODID = "m2paxel";
 
-    public ExampleMod(IEventBus modEventBus, ModContainer modContainer) {
-        modContainer.registerConfig(ModConfig.Type.COMMON, ServerConfig.SPEC);
+    public M2Paxel(IEventBus modEventBus, ModContainer modContainer) {
+        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
     }
 
     /**

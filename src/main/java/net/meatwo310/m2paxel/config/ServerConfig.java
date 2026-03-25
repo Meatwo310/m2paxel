@@ -1,4 +1,4 @@
-package net.meatwo310.examplemod.config;
+package net.meatwo310.m2paxel.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 

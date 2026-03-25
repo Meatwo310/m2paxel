@@ -14,15 +14,15 @@ object ModConfig {
     const val NEO_VERSION = "26.1.0.1-beta"
 
     // Mod Properties
-    const val MOD_ID = "examplemod"
-    const val MOD_NAME = "Example Mod"
+    const val MOD_ID = "m2paxel"
+    const val MOD_NAME = "m2paxel"
     const val MOD_LICENSE = "MIT"
     const val MOD_VERSION = "0.1.0"
-    const val MOD_GROUP_ID = "net.meatwo310.examplemod"
+    const val MOD_GROUP_ID = "net.meatwo310.m2paxel"
     const val MOD_AUTHORS = "Meatwo310"
-    const val MOD_DESCRIPTION = ""
-    const val MOD_DISPLAY_URL = "https://github.com/Meatwo310/custom-mdk"
-    const val MOD_ISSUE_TRACKER_URL = "${MOD_DISPLAY_URL}/issues"
+    const val MOD_DESCRIPTION = "Add a multi-tool to free up hotbar space."
+    const val MOD_DISPLAY_URL = "https://github.com/Meatwo310/m2paxel/tree/26.1-neo"
+    const val MOD_ISSUE_TRACKER_URL = "https://github.com/Meatwo310/m2paxel/issues"
     const val MOD_CREDITS = ""
 }
 

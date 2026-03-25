@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "net.meatwo310.examplemod.mixin",
+  "package": "net.meatwo310.m2paxel.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [],
   "injectors": {
