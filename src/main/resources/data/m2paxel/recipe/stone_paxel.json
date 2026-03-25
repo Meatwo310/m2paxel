@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    "minecraft:stone_sword",
+    "minecraft:stone_pickaxe",
+    "minecraft:stone_shovel",
+    "minecraft:stone_axe"
+  ],
+  "result": {
+    "id": "m2paxel:stone_paxel",
+    "count": 1
+  }
+}

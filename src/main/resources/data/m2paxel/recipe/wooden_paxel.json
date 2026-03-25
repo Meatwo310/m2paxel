@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    "minecraft:wooden_sword",
+    "minecraft:wooden_pickaxe",
+    "minecraft:wooden_shovel",
+    "minecraft:wooden_axe"
+  ],
+  "result": {
+    "id": "m2paxel:wooden_paxel",
+    "count": 1
+  }
+}

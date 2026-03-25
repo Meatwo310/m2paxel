@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    "minecraft:copper_sword",
+    "minecraft:copper_pickaxe",
+    "minecraft:copper_shovel",
+    "minecraft:copper_axe"
+  ],
+  "result": {
+    "id": "m2paxel:copper_paxel",
+    "count": 1
+  }
+}
