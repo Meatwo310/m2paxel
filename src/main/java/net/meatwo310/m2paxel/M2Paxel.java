@@ -1,6 +1,7 @@
 package net.meatwo310.m2paxel;
 
 import net.meatwo310.m2paxel.config.ServerConfig;
+import net.meatwo310.m2paxel.item.M2PaxelItems;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -13,6 +14,8 @@ public class M2Paxel {
 
     public M2Paxel(IEventBus modEventBus, ModContainer modContainer) {
         modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
+
+        M2PaxelItems.register(modEventBus);
     }
 
     /**
