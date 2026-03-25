@@ -8,7 +8,7 @@ A Mod that adds the Paxel, an item that combines the functions of a sword, picka
 - 🔨 Can mine any block
 - 💪 4 times the durability of regular tools
 - 🪓 Attack power equivalent to an axe
-- (Not implemented yet) Sweeping attack
+- ⚔️ Attack speed equivalent to a sword, with sweeping attacks
 - (Not implemented yet) Right-click behavior
 
 ### Recipe
@@ -26,7 +26,7 @@ Place a sword, pickaxe, shovel, and axe of the same material in the crafting gri
 - 🔨 どんなブロックも採掘可能
 - 💪 通常のツールの4倍の耐久値
 - 🪓 斧と同等の攻撃力
-- (未実装) 薙ぎ払い攻撃
+- ️⚔️ 剣と同等の攻撃速度と薙ぎ払い攻撃
 - (未実装) 右クリック時の挙動
 
 ### レシピ

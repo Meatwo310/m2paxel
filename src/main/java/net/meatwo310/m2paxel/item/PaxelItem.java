@@ -1,6 +1,7 @@
 package net.meatwo310.m2paxel.item;
 
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
@@ -8,32 +9,38 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.component.Weapon;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.Map;
 
 public class PaxelItem extends Item {
-    private record Baseline(float attackDamage, float attackSpeed) {}
     /// Copied values from vanilla axe.
     /// @see net.minecraft.world.item.Items
-    private static final Map<ToolMaterial, Baseline> AXE_BASELINES = Map.of(
-            ToolMaterial.WOOD,      new Baseline(6.0F, -3.2F),
-            ToolMaterial.COPPER,    new Baseline(7.0F, -3.2F),
-            ToolMaterial.STONE,     new Baseline(7.0F, -3.2F),
-            ToolMaterial.GOLD,      new Baseline(6.0F, -3.0F),
-            ToolMaterial.IRON,      new Baseline(6.0F, -3.1F),
-            ToolMaterial.DIAMOND,   new Baseline(5.0F, -3.0F),
-            ToolMaterial.NETHERITE, new Baseline(5.0F, -3.0F)
+    private static final Map<ToolMaterial, Float> AXE_ATTACK_DAMAGES = Map.of(
+            ToolMaterial.WOOD,      6.0F,
+            ToolMaterial.COPPER,    7.0F,
+            ToolMaterial.STONE,     7.0F,
+            ToolMaterial.GOLD,      6.0F,
+            ToolMaterial.IRON,      6.0F,
+            ToolMaterial.DIAMOND,   5.0F,
+            ToolMaterial.NETHERITE, 5.0F
     );
+    /// Copied values from vanilla sword.
+    /// @see net.minecraft.world.item.Items
+    private static final float SWORD_ATTACK_SPEED = -2.4F;
 
     public PaxelItem(ToolMaterial material, Properties properties) {
-        Baseline baseline = AXE_BASELINES.get(material);
-        this(material, baseline.attackDamage, baseline.attackSpeed, properties);
+        this(material, AXE_ATTACK_DAMAGES.get(material), SWORD_ATTACK_SPEED, properties);
     }
 
     public PaxelItem(ToolMaterial material, float attackDamageBaseline, float attackSpeedBaseline, Properties properties) {
@@ -51,7 +58,10 @@ public class PaxelItem extends Item {
                         Tool.Rule.deniesDrops(blocks.getOrThrow(material.incorrectBlocksForDrops())),
                         Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_PICKAXE), speed),
                         Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_AXE), speed),
-                        Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_SHOVEL), speed)
+                        Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_SHOVEL), speed),
+                        Tool.Rule.minesAndDrops(HolderSet.direct(Blocks.COBWEB.builtInRegistryHolder()), 15.0F),
+                        Tool.Rule.overrideSpeed(blocks.getOrThrow(BlockTags.SWORD_INSTANTLY_MINES), Float.MAX_VALUE),
+                        Tool.Rule.overrideSpeed(blocks.getOrThrow(BlockTags.SWORD_EFFICIENT), 1.5F)
                 ),
                 1.0F,
                 1,
@@ -86,5 +96,10 @@ public class PaxelItem extends Item {
                 .component(DataComponents.WEAPON, new Weapon(2, Weapon.AXE_DISABLES_BLOCKING_FOR_SECONDS))
                 .component(DataComponents.TOOL, tool)
                 .attributes(attributes);
+    }
+
+    @Override
+    public boolean canPerformAction(@NonNull ItemInstance stack, @NonNull ItemAbility ability) {
+        return ability == ItemAbilities.SWORD_SWEEP || super.canPerformAction(stack, ability);
     }
 }
