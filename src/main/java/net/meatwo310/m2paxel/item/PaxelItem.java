@@ -59,16 +59,24 @@ public class PaxelItem extends Item {
         );
 
         ItemAttributeModifiers attributes = ItemAttributeModifiers.builder()
-                .add(Attributes.ATTACK_DAMAGE,
-                        new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID,
+                .add(
+                        Attributes.ATTACK_DAMAGE,
+                        new AttributeModifier(
+                                Item.BASE_ATTACK_DAMAGE_ID,
                                 attackDamageBaseline + material.attackDamageBonus(),
-                                AttributeModifier.Operation.ADD_VALUE),
-                        EquipmentSlotGroup.MAINHAND)
-                .add(Attributes.ATTACK_SPEED,
-                        new AttributeModifier(Item.BASE_ATTACK_SPEED_ID,
+                                AttributeModifier.Operation.ADD_VALUE
+                        ),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .add(
+                        Attributes.ATTACK_SPEED,
+                        new AttributeModifier(
+                                Item.BASE_ATTACK_SPEED_ID,
                                 attackSpeedBaseline,
-                                AttributeModifier.Operation.ADD_VALUE),
-                        EquipmentSlotGroup.MAINHAND)
+                                AttributeModifier.Operation.ADD_VALUE
+                        ),
+                        EquipmentSlotGroup.MAINHAND
+                )
                 .build();
 
         return base
