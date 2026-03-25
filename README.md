@@ -1,6 +1,8 @@
 # m2paxel
 
-A Mod that adds the Paxel, an item that combines the functions of a sword, pickaxe, shovel, and axe.
+[GitHub](https://github.com/Meatwo310/m2paxel) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/m2paxel) | [Modrinth](https://modrinth.com/mod/m2paxel)
+
+A Mod that adds "Paxel", a multi-tool combining Sword, Pickaxe, Shovel, and Axe functionalities.
 
 ## English
 
@@ -16,11 +18,18 @@ Place a sword, pickaxe, shovel, and axe of the same material in the crafting gri
 
 <img width="718" height="310" alt="image" src="https://github.com/user-attachments/assets/646baa3b-d604-4e60-989c-50c794c55bb2" />
 
+### Supported Versions
+- 1.7.10 Forge
+- 26.1 NeoForge
+
+### Contributing
+Very welcome!
+
 ---
 
 ## 日本語
 
-剣、ツルハシ、シャベル、斧の機能を併せ持ったアイテム、パクセルを追加するModです。
+剣、ツルハシ、シャベル、斧の機能を併せ持つマルチツール「パクセル」を追加するMod。
 
 ### 特徴
 - 🔨 どんなブロックも採掘可能
@@ -33,3 +42,10 @@ Place a sword, pickaxe, shovel, and axe of the same material in the crafting gri
 同じ材料の剣・ツルハシ・シャベル・斧をクラフトグリッドに配置(順不同)
 
 <img width="768" height="306" alt="image" src="https://github.com/user-attachments/assets/d15070cd-5e66-4a0c-bb31-7ca506e853f5" />
+
+### 対応バージョン
+- 1.7.10 Forge
+- 26.1 NeoForge
+
+### 貢献
+大歓迎！
