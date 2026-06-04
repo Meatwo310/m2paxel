@@ -1,5 +1,7 @@
 {
-  "type": "crafting_shapeless",
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "paxel",
   "ingredients": [
     "minecraft:diamond_sword",
     "minecraft:diamond_pickaxe",
