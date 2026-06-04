@@ -64,6 +64,7 @@ dependencies {
     // Default Dependencies
 
     // Mod Dependencies
+    runtimeOnly("curse.maven:jei-238222:7861496")
 }
 
 /// Project Settings ///
