@@ -1,6 +1,8 @@
 package net.meatwo310.m2paxel;
 
 import net.meatwo310.m2paxel.config.ModConfigs;
+import net.meatwo310.m2paxel.item.M2PaxelItems;
+import net.meatwo310.m2paxel.item.M2PaxelTabs;
 import net.meatwo310.m2paxel.mdk.config.PlatformConfigRegistrar;
 import net.meatwo310.m2paxel.mdk.config.VersionedConfigSpec;
 import net.neoforged.bus.api.IEventBus;
@@ -12,5 +14,7 @@ public class ModMain {
     public ModMain(IEventBus modEventBus, ModContainer modContainer) {
         Constants.LOGGER.debug(Constants.INITIALIZING, ModUtils.loc("1.21.1-neo"));
         PlatformConfigRegistrar.registerAll(modContainer, VersionedConfigSpec.bindAll(ModConfigs.ALL));
+        M2PaxelItems.register(modEventBus);
+        M2PaxelTabs.register(modEventBus);
     }
 }
