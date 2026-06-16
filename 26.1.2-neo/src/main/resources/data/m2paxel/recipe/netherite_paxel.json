@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "paxel",
+  "ingredients": [
+    "minecraft:netherite_sword",
+    "minecraft:netherite_pickaxe",
+    "minecraft:netherite_shovel",
+    "minecraft:netherite_axe"
+  ],
+  "result": {
+    "id": "m2paxel:netherite_paxel",
+    "count": 1
+  }
+}
