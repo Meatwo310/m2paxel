@@ -3,10 +3,18 @@
   "category": "equipment",
   "group": "paxel",
   "ingredients": [
-    "minecraft:netherite_sword",
-    "minecraft:netherite_pickaxe",
-    "minecraft:netherite_shovel",
-    "minecraft:netherite_axe"
+    {
+      "item": "minecraft:netherite_sword"
+    },
+    {
+      "item": "minecraft:netherite_pickaxe"
+    },
+    {
+      "item": "minecraft:netherite_shovel"
+    },
+    {
+      "item": "minecraft:netherite_axe"
+    }
   ],
   "result": {
     "id": "m2paxel:netherite_paxel",

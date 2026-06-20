@@ -3,10 +3,18 @@
   "category": "equipment",
   "group": "paxel",
   "ingredients": [
-    "minecraft:stone_sword",
-    "minecraft:stone_pickaxe",
-    "minecraft:stone_shovel",
-    "minecraft:stone_axe"
+    {
+      "item": "minecraft:stone_sword"
+    },
+    {
+      "item": "minecraft:stone_pickaxe"
+    },
+    {
+      "item": "minecraft:stone_shovel"
+    },
+    {
+      "item": "minecraft:stone_axe"
+    }
   ],
   "result": {
     "id": "m2paxel:stone_paxel",
