@@ -2,7 +2,9 @@ package net.meatwo310.m2paxel.item;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
@@ -42,6 +44,7 @@ public class PaxelItem extends Item {
             ItemAbilities.SWORD_SWEEP
     );
     private static final float SWORD_ATTACK_SPEED = -2.4F;
+    private final Tier tier;
 
     public PaxelItem(Tier tier, Properties properties) {
         this(tier, AXE_ATTACK_DAMAGES.get(tier), SWORD_ATTACK_SPEED, properties);
@@ -49,6 +52,7 @@ public class PaxelItem extends Item {
 
     public PaxelItem(Tier tier, float attackDamageBaseline, float attackSpeedBaseline, Properties properties) {
         super(build(tier, attackDamageBaseline, attackSpeedBaseline, properties));
+        this.tier = tier;
     }
 
     private static Properties build(Tier tier, float attackDamageBaseline, float attackSpeedBaseline, Properties base) {
@@ -97,5 +101,25 @@ public class PaxelItem extends Item {
     @Override
     public boolean canPerformAction(@NonNull ItemStack stack, @NonNull ItemAbility ability) {
         return PAXEL_ACTIONS.contains(ability) || super.canPerformAction(stack, ability);
+    }
+
+    @Override
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        return true;
+    }
+
+    @Override
+    public void postHurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return this.tier.getEnchantmentValue();
+    }
+
+    @Override
+    public boolean isValidRepairItem(ItemStack stack, ItemStack repairCandidate) {
+        return this.tier.getRepairIngredient().test(repairCandidate) || super.isValidRepairItem(stack, repairCandidate);
     }
 }
