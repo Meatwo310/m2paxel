@@ -1,0 +1,11 @@
+{
+  "values": [
+    "m2paxel:wooden_paxel",
+    "m2paxel:stone_paxel",
+    "m2paxel:copper_paxel",
+    "m2paxel:iron_paxel",
+    "m2paxel:golden_paxel",
+    "m2paxel:diamond_paxel",
+    "m2paxel:netherite_paxel"
+  ]
+}
