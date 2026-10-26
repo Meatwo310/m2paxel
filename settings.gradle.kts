@@ -79,9 +79,9 @@ includeMc("26.1.2", "neo")
 // includeMc("26.2", "neo")
 
 /// 26.3 ///
-includeMc("26.3", "common")
-includeMc("26.3", "fabric")
-includeMc("26.3", "neo")
+// includeMc("26.3", "common")
+// includeMc("26.3", "fabric")
+// includeMc("26.3", "neo")
 
 val ciBuildProjectNames = rootProject.children
     .map { it.name }
