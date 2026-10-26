@@ -74,8 +74,8 @@ class ResourceCompositionTest {
         listOf("deleted.txt", "expanded.txt", "generated.txt").forEach {
             cases[it] = listOf(Input("platform", "main"))
         }
-        cases["assets/examplemod/probe.txt"] = inputs
-        cases["data/examplemod/probe.txt"] = inputs
+        cases["assets/m2paxel/probe.txt"] = inputs
+        cases["data/m2paxel/probe.txt"] = inputs
         return cases
     }
 
