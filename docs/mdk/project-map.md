@@ -14,6 +14,10 @@ This file maps repository locations to responsibilities.
 
 - Applies loader Gradle plugins at the root with `apply false`.
 - Registers `writeCiBuildMatrix`.
+- Reads each loader project's `platformArtifacts` metadata and records exact
+  main, sources, and release artifact names in the CI matrix.
+- Honors a loader project's `ciRequiresCommon=false` property when a standalone
+  project does not have a matching `<minecraft>-common` project.
 - Reads `version.txt` into `modVersion`.
 - Sets common subproject group, version, repositories, Java compile encoding,
   archive version, and IDEA behavior.
@@ -34,7 +38,8 @@ This file maps repository locations to responsibilities.
 
 `common/src/main`
 
-- Cross-version Java used by all loaders and Minecraft versions.
+- Cross-version Java used by convention-backed loaders and Minecraft versions.
+- The standalone 1.7.10 Forge project does not consume it.
 
 `common/src/config`
 
@@ -65,6 +70,9 @@ This file maps repository locations to responsibilities.
 - LexForge entrypoint, resources, mixin config, templates, and runtime deps.
 - Uses `lexforge-mod-conventions` for ForgeGradle 7+ or `lexforge-legacy-mod-conventions` for older versions.
 - Applies the matching `lexforge-config-conventions` or `lexforge-legacy-config-conventions` when config code is included.
+- `1.7.10/forge` is a standalone exception: it uses GTNHGradle, keeps
+  dependencies and repositories in project-local Gradle scripts, and has no
+  matching `1.7.10/common` project.
 
 `<mc>/neo`
 
@@ -93,7 +101,8 @@ This file maps repository locations to responsibilities.
 
 `src/main/resources`
 
-- Static loader resources, such as mixin JSON files.
+- Static loader resources, such as mixin JSON files and the GTNHGradle-backed
+  1.7.10 project's `mcmod.info`.
 
 `src/main/templates`
 
@@ -148,6 +157,14 @@ This file maps repository locations to responsibilities.
 - Kotlin helpers for source sets, CI runtime mod staging, Fabric metadata,
   dependency version actions, version support, and version catalog access.
 
+`PlatformArtifacts.kt`
+
+- Defines loader identity and the Gradle tasks that produce each platform's
+  main and optional sources jars.
+- Reads the archive base name from the platform's Gradle `base` configuration.
+- Resolves exact archive file names for CI, release collection, and downstream
+  publishing logic.
+
 `DependencyVersionConstraints.kt`
 
 - Provides `req(version)` for `version { require(version) }` and `pin(version)`
@@ -169,4 +186,5 @@ This file maps repository locations to responsibilities.
 
 - Manually bumps or keeps `version.txt`.
 - Builds all platform projects from the CI matrix.
-- Collects jars, generates release notes, tags, and publishes a GitHub Release.
+- Collects the exact release artifacts declared by each platform, generates
+  release notes, tags, and publishes a GitHub Release.

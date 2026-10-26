@@ -1,4 +1,5 @@
 import groovy.json.JsonOutput
+import net.meatwo310.mdk.build.platformArtifacts
 import net.meatwo310.mdk.build.supportsGameTestServer
 import org.gradle.plugins.ide.idea.model.IdeaModel
 
@@ -31,14 +32,20 @@ tasks.register("writeCiBuildMatrix") {
 
     val ciBuildMatrix = ciBuildProjects.map { projectName ->
         val targetProject = project(":$projectName")
-        val minecraftVersion = targetProject.property("minecraftVersion").toString()
-        val loader = projectName.substringAfterLast("-")
+        evaluationDependsOn(targetProject.path)
+        val artifacts = targetProject.platformArtifacts()
+        val minecraftVersion = artifacts.minecraftVersion
+        val loader = artifacts.loader
         val javaVersion = targetProject.findProperty("javaVersion")?.toString() ?: "17"
         val fabricApiVersion = targetProject.findProperty("fabricApiVersion")
             ?.toString()
             ?.substringBefore("+")
             ?: "none"
         val runMcRuntimeTest = targetProject.findProperty("ciMcRuntimeTest")
+            ?.toString()
+            ?.toBooleanStrictOrNull()
+            ?: true
+        val requiresCommon = targetProject.findProperty("ciRequiresCommon")
             ?.toString()
             ?.toBooleanStrictOrNull()
             ?: true
@@ -50,14 +57,20 @@ tasks.register("writeCiBuildMatrix") {
         }
         val supportsGameTestServer = minecraftVersion.supportsGameTestServer()
         val commonProjectName = "$minecraftVersion-common"
+        val expectedProjectName = "$minecraftVersion-$loader"
 
         if (loader !in supportedLoaders) {
             throw GradleException("Unsupported loader '$loader' in CI build project '$projectName'")
         }
+        if (projectName != expectedProjectName) {
+            throw GradleException(
+                "CI build project '$projectName' declares platform '$expectedProjectName'",
+            )
+        }
         if (minecraftVersion.isBlank()) {
             throw GradleException("Project '$projectName' must define minecraftVersion")
         }
-        if (!rootProject.childProjects.containsKey(commonProjectName)) {
+        if (requiresCommon && !rootProject.childProjects.containsKey(commonProjectName)) {
             throw GradleException("Project '$projectName' references missing common project '$commonProjectName'")
         }
         if (!javaVersion.matches(Regex("\\d+"))) {
@@ -76,7 +89,11 @@ tasks.register("writeCiBuildMatrix") {
             "run_mc_runtime_test" to runMcRuntimeTest,
             "modloader" to modloader,
             "mc_runtime_test" to mcRuntimeTest,
-            "artifact_regex" to ".*$loader.*",
+            "archive_base_name" to artifacts.archiveBaseName,
+            "main_artifact" to artifacts.mainArtifactName,
+            "sources_artifact" to artifacts.sourcesArtifactName,
+            "release_artifacts" to artifacts.releaseArtifactNames,
+            "modloader_regex" to ".*$loader.*",
         )
     }
 
@@ -191,7 +208,7 @@ subprojects {
 
     plugins.withType<JavaLibraryPlugin> {
         dependencies {
-            add("api", libs.jspecify)
+            add("compileOnlyApi", libs.jspecify)
         }
     }
 

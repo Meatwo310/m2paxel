@@ -29,6 +29,7 @@ val commonProject = ":$minecraftVersion-common"
 val sharedCommonProject = ":common"
 evaluationDependsOn(sharedCommonProject)
 configureCiRuntimeMods()
+configurePlatformArtifacts(loader = "forge", sourcesJarTaskName = "sourcesJar")
 
 dependencies {
     implementation(project(commonProject))
@@ -49,6 +50,10 @@ java.toolchain {
     languageVersion = JavaLanguageVersion.of(17)
     @Suppress("UnstableApiUsage")
     vendor = JvmVendorSpec.JETBRAINS
+}
+
+java {
+    withSourcesJar()
 }
 
 configurations {
@@ -159,6 +164,10 @@ val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata"
 
 sourceSets.main.get().resources.srcDir(generateModMetadata)
 legacyForge.ideSyncTask(generateModMetadata)
+
+tasks.named("sourcesJar") {
+    dependsOn(generateModMetadata)
+}
 
 tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE

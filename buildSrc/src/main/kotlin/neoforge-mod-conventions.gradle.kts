@@ -1,4 +1,5 @@
 import net.meatwo310.mdk.build.configureCiRuntimeMods
+import net.meatwo310.mdk.build.configurePlatformArtifacts
 import net.meatwo310.mdk.build.supportsGameTestServer
 import org.gradle.api.file.DuplicatesStrategy
 
@@ -30,6 +31,7 @@ val parchmentMinecraftVersion = project.findProperty("parchmentMinecraftVersion"
 val parchmentMappingsVersion = project.findProperty("parchmentMappingsVersion")?.toString()
 val neoDataRun = project.findProperty("neoDataRun")?.toString() ?: "data"
 configureCiRuntimeMods()
+configurePlatformArtifacts(loader = "neo", sourcesJarTaskName = "sourcesJar")
 
 dependencies {
     implementation(project(commonProject))
@@ -49,6 +51,10 @@ java.toolchain {
     languageVersion = JavaLanguageVersion.of(javaVersion.toInt())
     @Suppress("UnstableApiUsage")
     vendor = JvmVendorSpec.JETBRAINS
+}
+
+java {
+    withSourcesJar()
 }
 
 configurations {
@@ -136,6 +142,10 @@ val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata"
 
 sourceSets.main.get().resources.srcDir(generateModMetadata)
 neoForge.ideSyncTask(generateModMetadata)
+
+tasks.named("sourcesJar") {
+    dependsOn(generateModMetadata)
+}
 
 tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
