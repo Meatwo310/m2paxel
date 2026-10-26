@@ -1,5 +1,29 @@
 # Contributing
 
+If you are working in `Meatwo310/custom-mdk` itself, follow
+[MDK Template Changes](#mdk-template-changes). Otherwise, follow
+[Commit Message Convention](#commit-message-convention).
+
+## Formatting
+
+Ensure every added or modified file follows the repository-root
+[`.editorconfig`](../.editorconfig). Enable EditorConfig support in your editor
+and resolve any formatting violations before submitting a change. The
+EditorConfig workflow checks all tracked files independently from the build.
+
+Run the same check locally before submitting a change. If Nix is installed,
+you can use the development shell provided by this repository:
+
+```sh
+nix develop -c editorconfig-checker -format github-actions
+```
+
+Generated resources under `src/generated/` are excluded because their contents
+are produced by DataGen rather than edited directly.
+
+If you installed `editorconfig-checker` by another method, run the same command
+directly without `nix develop`.
+
 ## Commit Message Convention
 
 Commits should follow [Conventional Commits](https://www.conventionalcommits.org/):
@@ -8,9 +32,13 @@ Commits should follow [Conventional Commits](https://www.conventionalcommits.org
 type(scope): description
 ```
 
+Pull request titles should use the same format as commit messages. When a pull
+request is squash-merged, its title becomes the resulting commit message, so
+the title must be a valid commit message on its own.
+
 Use the smallest scope that describes the affected area.
 
-## Scope Rules
+### Scope Rules
 
 Subprojects are named for shared code, Minecraft versions, and loader targets, such as `common`, `1.20.1-common`, `1.20.1-fabric`, `1.20.1-forge`, or `26.1.2-neo`. Versioned subprojects live under directories such as `1.20.1/common`, `1.20.1/fabric`, `1.20.1/forge`, or `26.1.2/neo`.
 
@@ -23,7 +51,7 @@ Subprojects are named for shared code, Minecraft versions, and loader targets, s
 | All subprojects equally                      | Scope is optional                                                        |
 | Root-level repository metadata only          | Scope is optional                                                        |
 
-## Recommended Types
+### Recommended Types
 
 `feat` / `fix` / `docs` / `style` / `refactor` / `perf` / `test` / `build` / `ci` / `chore` / `revert` / `release`
 
@@ -34,7 +62,7 @@ from release notes.
 Because these entries can appear in changelogs as written, prefer English for
 commit messages that may be included in release notes.
 
-## Examples
+### Examples
 
 ```
 feat(26.1.2-fabric): add config screen support

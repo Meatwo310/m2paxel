@@ -106,7 +106,7 @@ val modVersion = providers.fileContents(layout.projectDirectory.file("version.tx
     .get()
 
 subprojects {
-    val modGroupId: String by project
+    val modGroupId = project.property("modGroupId").toString()
 
     extensions.extraProperties["modVersion"] = modVersion
     version = modVersion
@@ -165,6 +165,7 @@ subprojects {
             }
             filter {
                 includeGroupByRegex("fuzs\\..+")
+                includeModule("net.minecraftforge", "forgeconfigapiport-fabric")
             }
         }
 
