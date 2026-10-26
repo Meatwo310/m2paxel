@@ -1,6 +1,6 @@
-package net.meatwo310.examplemod.mdk.config;
+package net.meatwo310.m2paxel.mdk.config;
 
-import fuzs.forgeconfigapiport.forge.api.neoforge.v4.NeoForgeConfigRegistry;
+import fuzs.forgeconfigapiport.forge.api.v5.NeoForgeConfigRegistry;
 import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.config.ModConfig;
 
