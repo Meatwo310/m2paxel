@@ -1,4 +1,4 @@
-package net.meatwo310.examplemod.mdk.config;
+package net.meatwo310.m2paxel.mdk.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.jspecify.annotations.Nullable;

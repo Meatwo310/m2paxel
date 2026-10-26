@@ -1,4 +1,4 @@
-package net.meatwo310.examplemod.client;
+package net.meatwo310.m2paxel.client;
 
 import net.fabricmc.api.ClientModInitializer;
 
