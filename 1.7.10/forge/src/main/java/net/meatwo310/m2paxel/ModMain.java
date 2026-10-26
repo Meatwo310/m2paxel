@@ -1,22 +1,23 @@
 package net.meatwo310.m2paxel;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import net.meatwo310.m2paxel.common.CommonProxy;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Mod(modid = ModMain.MODID, version = Tags.VERSION, name = "Example Mod", acceptedMinecraftVersions = "[1.7.10]")
+@Mod(modid = ModMain.MODID, version = Tags.VERSION, name = "M2Paxel", acceptedMinecraftVersions = "[1.7.10]")
 public class ModMain {
-
     public static final String MODID = "m2paxel";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "net.meatwo310.m2paxel.ClientProxy", serverSide = "net.meatwo310.m2paxel.CommonProxy")
+    @SidedProxy(
+        clientSide = "net.meatwo310.m2paxel.client.ClientProxy",
+        serverSide = "net.meatwo310.m2paxel.common.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler
