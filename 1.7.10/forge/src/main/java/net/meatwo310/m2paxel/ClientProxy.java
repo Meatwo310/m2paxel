@@ -1,4 +1,4 @@
-package net.meatwo310.examplemod;
+package net.meatwo310.m2paxel;
 
 public class ClientProxy extends CommonProxy {
 
