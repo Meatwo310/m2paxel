@@ -1,7 +1,8 @@
 import net.meatwo310.mdk.build.configureCiRuntimeMods
 import net.meatwo310.mdk.build.configurePlatformArtifacts
+import net.meatwo310.mdk.build.developmentModSourceSet
+import net.meatwo310.mdk.build.includeSourceSetArtifacts
 import net.meatwo310.mdk.build.supportsGameTestServer
-import org.gradle.api.file.DuplicatesStrategy
 
 plugins {
     `java-library`
@@ -62,6 +63,8 @@ configurations {
     runtimeClasspath.get().extendsFrom(localRuntime)
 }
 
+val developmentSourceSet = developmentModSourceSet()
+
 neoForge {
     version = neoVersion
     validateAccessTransformers = true
@@ -111,9 +114,7 @@ neoForge {
 
     mods {
         create(modId) {
-            sourceSet(sourceSets.main.get())
-            sourceSet(project(commonProject).sourceSets.main.get())
-            sourceSet(project(sharedCommonProject).sourceSets.main.get())
+            sourceSet(developmentSourceSet)
         }
     }
 }
@@ -147,8 +148,7 @@ tasks.named("sourcesJar") {
     dependsOn(generateModMetadata)
 }
 
-tasks.jar {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    from(project(commonProject).sourceSets.main.get().output)
-    from(project(sharedCommonProject).sourceSets.main.get().output)
-}
+includeSourceSetArtifacts(
+    project(commonProject).sourceSets.main.get(),
+    project(sharedCommonProject).sourceSets.main.get(),
+)
