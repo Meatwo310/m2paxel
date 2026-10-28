@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "m2paxel:diamond_phaxel"
+  },
+  "result": {
+    "id": "m2paxel:netherite_phaxel",
+    "count": 1
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

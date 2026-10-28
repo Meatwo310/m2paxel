@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "m2paxel:tool_crafting",
   "category": "equipment",
   "group": "paxel",
   "ingredients": [

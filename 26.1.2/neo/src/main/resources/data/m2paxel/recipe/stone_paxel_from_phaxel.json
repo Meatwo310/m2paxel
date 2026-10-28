@@ -1,0 +1,13 @@
+{
+  "type": "m2paxel:tool_crafting",
+  "category": "equipment",
+  "group": "paxel",
+  "operation": "remove_hoe",
+  "ingredients": [
+    "m2paxel:stone_phaxel"
+  ],
+  "result": {
+    "id": "m2paxel:stone_paxel",
+    "count": 1
+  }
+}

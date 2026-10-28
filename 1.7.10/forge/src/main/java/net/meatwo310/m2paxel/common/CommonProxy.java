@@ -7,6 +7,8 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.meatwo310.m2paxel.common.event.CommonEvents;
 import net.meatwo310.m2paxel.common.item.M2PaxelItems;
+import net.meatwo310.m2paxel.recipe.ToolCraftingOperation;
+import net.meatwo310.m2paxel.recipe.ToolCraftingRecipe;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,115 +35,33 @@ public class CommonProxy {
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
-        registerPaxelRecipe();
-        registerPhaxelRecipes();
+        registerToolRecipes();
         CommonEvents.register();
     }
 
-    private static void registerPaxelRecipe() {
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.WOODEN_PAXEL),
-            ignoreDamage(Items.wooden_sword),
-            ignoreDamage(Items.wooden_pickaxe),
-            ignoreDamage(Items.wooden_shovel),
-            ignoreDamage(Items.wooden_axe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.STONE_PAXEL),
-            ignoreDamage(Items.stone_sword),
-            ignoreDamage(Items.stone_pickaxe),
-            ignoreDamage(Items.stone_shovel),
-            ignoreDamage(Items.stone_axe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.IRON_PAXEL),
-            ignoreDamage(Items.iron_sword),
-            ignoreDamage(Items.iron_pickaxe),
-            ignoreDamage(Items.iron_shovel),
-            ignoreDamage(Items.iron_axe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.GOLDEN_PAXEL),
-            ignoreDamage(Items.golden_sword),
-            ignoreDamage(Items.golden_pickaxe),
-            ignoreDamage(Items.golden_shovel),
-            ignoreDamage(Items.golden_axe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.DIAMOND_PAXEL),
-            ignoreDamage(Items.diamond_sword),
-            ignoreDamage(Items.diamond_pickaxe),
-            ignoreDamage(Items.diamond_shovel),
-            ignoreDamage(Items.diamond_axe)
-        );
+    private static void registerToolRecipes() {
+        registerToolRecipes(M2PaxelItems.WOODEN_PAXEL, M2PaxelItems.WOODEN_PHAXEL,
+            Items.wooden_sword, Items.wooden_pickaxe, Items.wooden_shovel, Items.wooden_axe, Items.wooden_hoe);
+        registerToolRecipes(M2PaxelItems.STONE_PAXEL, M2PaxelItems.STONE_PHAXEL,
+            Items.stone_sword, Items.stone_pickaxe, Items.stone_shovel, Items.stone_axe, Items.stone_hoe);
+        registerToolRecipes(M2PaxelItems.IRON_PAXEL, M2PaxelItems.IRON_PHAXEL,
+            Items.iron_sword, Items.iron_pickaxe, Items.iron_shovel, Items.iron_axe, Items.iron_hoe);
+        registerToolRecipes(M2PaxelItems.GOLDEN_PAXEL, M2PaxelItems.GOLDEN_PHAXEL,
+            Items.golden_sword, Items.golden_pickaxe, Items.golden_shovel, Items.golden_axe, Items.golden_hoe);
+        registerToolRecipes(M2PaxelItems.DIAMOND_PAXEL, M2PaxelItems.DIAMOND_PHAXEL,
+            Items.diamond_sword, Items.diamond_pickaxe, Items.diamond_shovel, Items.diamond_axe, Items.diamond_hoe);
     }
 
-    private static void registerPhaxelRecipes() {
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.WOODEN_PHAXEL),
-            ignoreDamage(M2PaxelItems.WOODEN_PAXEL),
-            ignoreDamage(Items.wooden_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.WOODEN_PHAXEL),
-            ignoreDamage(Items.wooden_sword),
-            ignoreDamage(Items.wooden_pickaxe),
-            ignoreDamage(Items.wooden_shovel),
-            ignoreDamage(Items.wooden_axe),
-            ignoreDamage(Items.wooden_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.STONE_PHAXEL),
-            ignoreDamage(M2PaxelItems.STONE_PAXEL),
-            ignoreDamage(Items.stone_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.STONE_PHAXEL),
-            ignoreDamage(Items.stone_sword),
-            ignoreDamage(Items.stone_pickaxe),
-            ignoreDamage(Items.stone_shovel),
-            ignoreDamage(Items.stone_axe),
-            ignoreDamage(Items.stone_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.IRON_PHAXEL),
-            ignoreDamage(M2PaxelItems.IRON_PAXEL),
-            ignoreDamage(Items.iron_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.IRON_PHAXEL),
-            ignoreDamage(Items.iron_sword),
-            ignoreDamage(Items.iron_pickaxe),
-            ignoreDamage(Items.iron_shovel),
-            ignoreDamage(Items.iron_axe),
-            ignoreDamage(Items.iron_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.GOLDEN_PHAXEL),
-            ignoreDamage(M2PaxelItems.GOLDEN_PAXEL),
-            ignoreDamage(Items.golden_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.GOLDEN_PHAXEL),
-            ignoreDamage(Items.golden_sword),
-            ignoreDamage(Items.golden_pickaxe),
-            ignoreDamage(Items.golden_shovel),
-            ignoreDamage(Items.golden_axe),
-            ignoreDamage(Items.golden_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.DIAMOND_PHAXEL),
-            ignoreDamage(M2PaxelItems.DIAMOND_PAXEL),
-            ignoreDamage(Items.diamond_hoe)
-        );
-        GameRegistry.addShapelessRecipe(
-            new ItemStack(M2PaxelItems.DIAMOND_PHAXEL),
-            ignoreDamage(Items.diamond_sword),
-            ignoreDamage(Items.diamond_pickaxe),
-            ignoreDamage(Items.diamond_shovel),
-            ignoreDamage(Items.diamond_axe),
-            ignoreDamage(Items.diamond_hoe)
-        );
+    private static void registerToolRecipes(Item paxel, Item phaxel, Item sword, Item pickaxe,
+                                            Item shovel, Item axe, Item hoe) {
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(paxel), ToolCraftingOperation.COMBINE,
+            ignoreDamage(sword), ignoreDamage(pickaxe), ignoreDamage(shovel), ignoreDamage(axe)));
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(phaxel), ToolCraftingOperation.COMBINE,
+            ignoreDamage(sword), ignoreDamage(pickaxe), ignoreDamage(shovel), ignoreDamage(axe), ignoreDamage(hoe)));
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(phaxel), ToolCraftingOperation.COMBINE,
+            ignoreDamage(paxel), ignoreDamage(hoe)));
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(paxel), ToolCraftingOperation.REMOVE_HOE,
+            ignoreDamage(phaxel)));
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)

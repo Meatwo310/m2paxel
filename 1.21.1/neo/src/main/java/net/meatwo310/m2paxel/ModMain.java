@@ -3,6 +3,7 @@ package net.meatwo310.m2paxel;
 import net.meatwo310.m2paxel.config.ModConfigs;
 import net.meatwo310.m2paxel.item.M2PaxelItems;
 import net.meatwo310.m2paxel.item.M2PaxelTabs;
+import net.meatwo310.m2paxel.recipe.M2PaxelRecipes;
 import net.meatwo310.m2paxel.mdk.config.PlatformConfigRegistrar;
 import net.meatwo310.m2paxel.mdk.config.VersionedConfigSpec;
 import net.neoforged.bus.api.IEventBus;
@@ -16,5 +17,6 @@ public class ModMain {
         PlatformConfigRegistrar.registerAll(modContainer, VersionedConfigSpec.bindAll(ModConfigs.ALL));
         M2PaxelItems.register(modEventBus);
         M2PaxelTabs.register(modEventBus);
+        M2PaxelRecipes.register(modEventBus);
     }
 }
