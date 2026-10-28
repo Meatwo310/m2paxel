@@ -33,13 +33,8 @@ public class PaxelItem extends Item {
     );
     private static final Set<ItemAbility> PAXEL_ACTIONS = Set.of(
             ItemAbilities.AXE_DIG,
-            ItemAbilities.AXE_STRIP,
-            ItemAbilities.AXE_SCRAPE,
-            ItemAbilities.AXE_WAX_OFF,
             ItemAbilities.PICKAXE_DIG,
             ItemAbilities.SHOVEL_DIG,
-            ItemAbilities.SHOVEL_FLATTEN,
-            ItemAbilities.SHOVEL_DOUSE,
             ItemAbilities.SWORD_DIG,
             ItemAbilities.SWORD_SWEEP
     );
