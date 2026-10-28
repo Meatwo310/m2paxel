@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "phaxel",
+  "ingredients": [
+    {
+      "item": "m2paxel:golden_paxel"
+    },
+    {
+      "item": "minecraft:golden_hoe"
+    }
+  ],
+  "result": {
+    "id": "m2paxel:golden_phaxel",
+    "count": 1
+  }
+}

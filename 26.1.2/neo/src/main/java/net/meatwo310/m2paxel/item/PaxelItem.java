@@ -20,6 +20,7 @@ import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 import org.jspecify.annotations.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,25 +41,38 @@ public class PaxelItem extends Item {
     }
 
     public PaxelItem(ToolMaterial material, float attackDamageBaseline, float attackSpeedBaseline, Properties properties) {
-        super(build(material, attackDamageBaseline, attackSpeedBaseline, properties));
+        this(material, attackDamageBaseline, attackSpeedBaseline, properties, false);
     }
 
-    private static Properties build(ToolMaterial material, float attackDamageBaseline, float attackSpeedBaseline, Properties base) {
+    protected PaxelItem(ToolMaterial material, Properties properties, boolean includesHoe) {
+        this(material, AXE_ATTACK_DAMAGES.get(material), SWORD_ATTACK_SPEED, properties, includesHoe);
+    }
+
+    private PaxelItem(ToolMaterial material, float attackDamageBaseline, float attackSpeedBaseline, Properties properties, boolean includesHoe) {
+        super(build(material, attackDamageBaseline, attackSpeedBaseline, properties, includesHoe));
+    }
+
+    private static Properties build(ToolMaterial material, float attackDamageBaseline, float attackSpeedBaseline, Properties base, boolean includesHoe) {
         HolderGetter<Block> blocks =
                 BuiltInRegistries.acquireBootstrapRegistrationLookup(BuiltInRegistries.BLOCK);
 
         float speed = material.speed();
 
+        List<Tool.Rule> rules = new ArrayList<>(List.of(
+                Tool.Rule.deniesDrops(blocks.getOrThrow(material.incorrectBlocksForDrops())),
+                Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_PICKAXE), speed),
+                Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_AXE), speed),
+                Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_SHOVEL), speed),
+                Tool.Rule.minesAndDrops(HolderSet.direct(Blocks.COBWEB.builtInRegistryHolder()), 15.0F),
+                Tool.Rule.overrideSpeed(blocks.getOrThrow(BlockTags.SWORD_INSTANTLY_MINES), Float.MAX_VALUE),
+                Tool.Rule.overrideSpeed(blocks.getOrThrow(BlockTags.SWORD_EFFICIENT), 1.5F)
+        ));
+        if (includesHoe) {
+            rules.add(4, Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_HOE), speed));
+        }
+
         Tool tool = new Tool(
-                List.of(
-                        Tool.Rule.deniesDrops(blocks.getOrThrow(material.incorrectBlocksForDrops())),
-                        Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_PICKAXE), speed),
-                        Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_AXE), speed),
-                        Tool.Rule.minesAndDrops(blocks.getOrThrow(BlockTags.MINEABLE_WITH_SHOVEL), speed),
-                        Tool.Rule.minesAndDrops(HolderSet.direct(Blocks.COBWEB.builtInRegistryHolder()), 15.0F),
-                        Tool.Rule.overrideSpeed(blocks.getOrThrow(BlockTags.SWORD_INSTANTLY_MINES), Float.MAX_VALUE),
-                        Tool.Rule.overrideSpeed(blocks.getOrThrow(BlockTags.SWORD_EFFICIENT), 1.5F)
-                ),
+                rules,
                 1.0F,
                 1,
                 true
@@ -86,7 +100,7 @@ public class PaxelItem extends Item {
                 .build();
 
         return base
-                .durability(material.durability() * 4)
+                .durability(material.durability() * (includesHoe ? 5 : 4))
                 .repairable(material.repairItems())
                 .enchantable(material.enchantmentValue())
                 .component(DataComponents.WEAPON, new Weapon(2, Weapon.AXE_DISABLES_BLOCKING_FOR_SECONDS))

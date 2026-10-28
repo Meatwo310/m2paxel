@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "phaxel",
+  "ingredients": [
+    {
+      "item": "m2paxel:iron_paxel"
+    },
+    {
+      "item": "minecraft:iron_hoe"
+    }
+  ],
+  "result": {
+    "id": "m2paxel:iron_phaxel",
+    "count": 1
+  }
+}

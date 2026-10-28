@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "phaxel",
+  "ingredients": [
+    {
+      "item": "m2paxel:netherite_paxel"
+    },
+    {
+      "item": "minecraft:netherite_hoe"
+    }
+  ],
+  "result": {
+    "id": "m2paxel:netherite_phaxel",
+    "count": 1
+  }
+}

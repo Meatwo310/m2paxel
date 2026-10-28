@@ -5,5 +5,12 @@
   "item.m2paxel.iron_paxel": "鉄のパクセル",
   "item.m2paxel.golden_paxel": "金のパクセル",
   "item.m2paxel.diamond_paxel": "ダイヤモンドのパクセル",
-  "item.m2paxel.netherite_paxel": "ネザライトのパクセル"
+  "item.m2paxel.netherite_paxel": "ネザライトのパクセル",
+  "item.m2paxel.wooden_phaxel": "木のファクセル",
+  "item.m2paxel.stone_phaxel": "石のファクセル",
+  "item.m2paxel.copper_phaxel": "銅のファクセル",
+  "item.m2paxel.iron_phaxel": "鉄のファクセル",
+  "item.m2paxel.golden_phaxel": "金のファクセル",
+  "item.m2paxel.diamond_phaxel": "ダイヤモンドのファクセル",
+  "item.m2paxel.netherite_phaxel": "ネザライトのファクセル"
 }

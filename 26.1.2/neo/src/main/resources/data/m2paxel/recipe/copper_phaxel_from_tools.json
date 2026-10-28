@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "phaxel",
+  "ingredients": [
+    "minecraft:copper_sword",
+    "minecraft:copper_pickaxe",
+    "minecraft:copper_shovel",
+    "minecraft:copper_axe",
+    "minecraft:copper_hoe"
+  ],
+  "result": {
+    "id": "m2paxel:copper_phaxel",
+    "count": 1
+  }
+}

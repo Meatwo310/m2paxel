@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "phaxel",
+  "ingredients": [
+    "m2paxel:diamond_paxel",
+    "minecraft:diamond_hoe"
+  ],
+  "result": {
+    "id": "m2paxel:diamond_phaxel",
+    "count": 1
+  }
+}

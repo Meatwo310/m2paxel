@@ -23,11 +23,18 @@ public class CommonProxy {
         GameRegistry.registerItem(M2PaxelItems.IRON_PAXEL, "iron_paxel");
         GameRegistry.registerItem(M2PaxelItems.GOLDEN_PAXEL, "golden_paxel");
         GameRegistry.registerItem(M2PaxelItems.DIAMOND_PAXEL, "diamond_paxel");
+
+        GameRegistry.registerItem(M2PaxelItems.WOODEN_PHAXEL, "wooden_phaxel");
+        GameRegistry.registerItem(M2PaxelItems.STONE_PHAXEL, "stone_phaxel");
+        GameRegistry.registerItem(M2PaxelItems.IRON_PHAXEL, "iron_phaxel");
+        GameRegistry.registerItem(M2PaxelItems.GOLDEN_PHAXEL, "golden_phaxel");
+        GameRegistry.registerItem(M2PaxelItems.DIAMOND_PHAXEL, "diamond_phaxel");
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         registerPaxelRecipe();
+        registerPhaxelRecipes();
         CommonEvents.register();
     }
 
@@ -66,6 +73,74 @@ public class CommonProxy {
             ignoreDamage(Items.diamond_pickaxe),
             ignoreDamage(Items.diamond_shovel),
             ignoreDamage(Items.diamond_axe)
+        );
+    }
+
+    private static void registerPhaxelRecipes() {
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.WOODEN_PHAXEL),
+            ignoreDamage(M2PaxelItems.WOODEN_PAXEL),
+            ignoreDamage(Items.wooden_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.WOODEN_PHAXEL),
+            ignoreDamage(Items.wooden_sword),
+            ignoreDamage(Items.wooden_pickaxe),
+            ignoreDamage(Items.wooden_shovel),
+            ignoreDamage(Items.wooden_axe),
+            ignoreDamage(Items.wooden_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.STONE_PHAXEL),
+            ignoreDamage(M2PaxelItems.STONE_PAXEL),
+            ignoreDamage(Items.stone_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.STONE_PHAXEL),
+            ignoreDamage(Items.stone_sword),
+            ignoreDamage(Items.stone_pickaxe),
+            ignoreDamage(Items.stone_shovel),
+            ignoreDamage(Items.stone_axe),
+            ignoreDamage(Items.stone_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.IRON_PHAXEL),
+            ignoreDamage(M2PaxelItems.IRON_PAXEL),
+            ignoreDamage(Items.iron_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.IRON_PHAXEL),
+            ignoreDamage(Items.iron_sword),
+            ignoreDamage(Items.iron_pickaxe),
+            ignoreDamage(Items.iron_shovel),
+            ignoreDamage(Items.iron_axe),
+            ignoreDamage(Items.iron_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.GOLDEN_PHAXEL),
+            ignoreDamage(M2PaxelItems.GOLDEN_PAXEL),
+            ignoreDamage(Items.golden_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.GOLDEN_PHAXEL),
+            ignoreDamage(Items.golden_sword),
+            ignoreDamage(Items.golden_pickaxe),
+            ignoreDamage(Items.golden_shovel),
+            ignoreDamage(Items.golden_axe),
+            ignoreDamage(Items.golden_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.DIAMOND_PHAXEL),
+            ignoreDamage(M2PaxelItems.DIAMOND_PAXEL),
+            ignoreDamage(Items.diamond_hoe)
+        );
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(M2PaxelItems.DIAMOND_PHAXEL),
+            ignoreDamage(Items.diamond_sword),
+            ignoreDamage(Items.diamond_pickaxe),
+            ignoreDamage(Items.diamond_shovel),
+            ignoreDamage(Items.diamond_axe),
+            ignoreDamage(Items.diamond_hoe)
         );
     }
 

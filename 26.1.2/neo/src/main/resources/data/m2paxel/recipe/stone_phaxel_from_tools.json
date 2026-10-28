@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "phaxel",
+  "ingredients": [
+    "minecraft:stone_sword",
+    "minecraft:stone_pickaxe",
+    "minecraft:stone_shovel",
+    "minecraft:stone_axe",
+    "minecraft:stone_hoe"
+  ],
+  "result": {
+    "id": "m2paxel:stone_phaxel",
+    "count": 1
+  }
+}

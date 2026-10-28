@@ -18,10 +18,21 @@ public final class M2PaxelItems {
     public static final DeferredItem<Item> DIAMOND_PAXEL = paxel("diamond_paxel", Tiers.DIAMOND);
     public static final DeferredItem<Item> NETHERITE_PAXEL = paxel("netherite_paxel", Tiers.NETHERITE);
 
+    public static final DeferredItem<Item> WOODEN_PHAXEL = phaxel("wooden_phaxel", Tiers.WOOD);
+    public static final DeferredItem<Item> STONE_PHAXEL = phaxel("stone_phaxel", Tiers.STONE);
+    public static final DeferredItem<Item> IRON_PHAXEL = phaxel("iron_phaxel", Tiers.IRON);
+    public static final DeferredItem<Item> GOLDEN_PHAXEL = phaxel("golden_phaxel", Tiers.GOLD);
+    public static final DeferredItem<Item> DIAMOND_PHAXEL = phaxel("diamond_phaxel", Tiers.DIAMOND);
+    public static final DeferredItem<Item> NETHERITE_PHAXEL = phaxel("netherite_phaxel", Tiers.NETHERITE);
+
     private M2PaxelItems() {}
 
     private static DeferredItem<Item> paxel(String name, Tier tier) {
         return ITEMS.registerItem(name, properties -> new PaxelItem(tier, properties));
+    }
+
+    private static DeferredItem<Item> phaxel(String name, Tier tier) {
+        return ITEMS.registerItem(name, properties -> new PhaxelItem(tier, properties));
     }
 
     public static void register(IEventBus bus) {

@@ -1,11 +1,17 @@
 {
   "itemGroup.m2paxel": "m2paxel",
-
   "item.m2paxel.wooden_paxel": "Wooden Paxel",
   "item.m2paxel.stone_paxel": "Stone Paxel",
   "item.m2paxel.copper_paxel": "Copper Paxel",
   "item.m2paxel.iron_paxel": "Iron Paxel",
   "item.m2paxel.golden_paxel": "Golden Paxel",
   "item.m2paxel.diamond_paxel": "Diamond Paxel",
-  "item.m2paxel.netherite_paxel": "Netherite Paxel"
+  "item.m2paxel.netherite_paxel": "Netherite Paxel",
+  "item.m2paxel.wooden_phaxel": "Wooden Phaxel",
+  "item.m2paxel.stone_phaxel": "Stone Phaxel",
+  "item.m2paxel.copper_phaxel": "Copper Phaxel",
+  "item.m2paxel.iron_phaxel": "Iron Phaxel",
+  "item.m2paxel.golden_phaxel": "Golden Phaxel",
+  "item.m2paxel.diamond_phaxel": "Diamond Phaxel",
+  "item.m2paxel.netherite_phaxel": "Netherite Phaxel"
 }
