@@ -4,10 +4,6 @@ package net.meatwo310.m2paxel.recipe;
 public final class ToolDurability {
     private ToolDurability() {}
 
-    public static int combinedDamage(int maximum, long remaining) {
-        return (int) Math.max(0L, maximum - Math.max(0L, remaining));
-    }
-
     public static int scaledDamage(int damage, int oldMaximum, int newMaximum) {
         if (oldMaximum <= 0 || newMaximum <= 0) {
             return 0;

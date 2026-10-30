@@ -21,7 +21,7 @@ public final class ToolCraftingRecipe extends ShapelessRecipes {
     @Override
     public boolean matches(InventoryCrafting input, World world) {
         return super.matches(input, world)
-                && (operation != ToolCraftingOperation.COMBINE || remainingDurability(input) > 0);
+                && getCraftingResult(input) != null;
     }
 
     @Override
@@ -39,22 +39,25 @@ public final class ToolCraftingRecipe extends ShapelessRecipes {
             result.setTagCompound((NBTTagCompound) base.getTagCompound().copy());
         }
         int maximum = result.getMaxDamage();
-        int damage = switch (operation) {
-            case COMBINE -> ToolDurability.combinedDamage(maximum, remainingDurability(input));
+        long damage = switch (operation) {
+            case COMBINE -> totalDamage(input);
             case REMOVE_HOE -> ToolDurability.scaledDamage(base.getItemDamage(), base.getMaxDamage(), maximum);
         };
-        result.setItemDamage(Math.max(0, Math.min(maximum - 1, damage)));
+        if (operation == ToolCraftingOperation.COMBINE && damage >= maximum) {
+            return null;
+        }
+        result.setItemDamage((int) Math.max(0L, Math.min(maximum - 1L, damage)));
         return result;
     }
 
-    private static long remainingDurability(InventoryCrafting input) {
-        long remaining = 0;
+    private static long totalDamage(InventoryCrafting input) {
+        long damage = 0;
         for (int slot = 0; slot < input.getSizeInventory(); slot++) {
             ItemStack stack = input.getStackInSlot(slot);
-            if (stack != null && stack.getMaxDamage() > 0) {
-                remaining += Math.max(0L, (long) stack.getMaxDamage() - stack.getItemDamage());
+            if (stack != null) {
+                damage += Math.max(0, stack.getItemDamage());
             }
         }
-        return remaining;
+        return damage;
     }
 }

@@ -56,7 +56,7 @@ public final class ToolCraftingRecipe extends ShapelessRecipe {
     @Override
     public boolean matches(CraftingInput input, Level level) {
         return super.matches(input, level)
-                && (operation != ToolCraftingOperation.COMBINE || remainingDurability(input) > 0);
+                && !assemble(input, level.registryAccess()).isEmpty();
     }
 
     @Override
@@ -74,21 +74,24 @@ public final class ToolCraftingRecipe extends ShapelessRecipe {
             result.applyComponents(base.getComponentsPatch());
         }
         int maximum = result.getMaxDamage();
-        int damage = switch (operation) {
-            case COMBINE -> ToolDurability.combinedDamage(maximum, remainingDurability(input));
+        long damage = switch (operation) {
+            case COMBINE -> totalDamage(input);
             case REMOVE_HOE -> ToolDurability.scaledDamage(base.getDamageValue(), base.getMaxDamage(), maximum);
         };
-        result.setDamageValue(Math.max(0, Math.min(maximum - 1, damage)));
+        if (operation == ToolCraftingOperation.COMBINE && damage >= maximum) {
+            return ItemStack.EMPTY;
+        }
+        result.setDamageValue((int) Math.max(0L, Math.min(maximum - 1L, damage)));
         return result;
     }
 
-    private static long remainingDurability(CraftingInput input) {
-        long remaining = 0;
+    private static long totalDamage(CraftingInput input) {
+        long damage = 0;
         for (ItemStack stack : input.items()) {
-            if (!stack.isEmpty() && stack.getMaxDamage() > 0) {
-                remaining += Math.max(0L, (long) stack.getMaxDamage() - stack.getDamageValue());
+            if (!stack.isEmpty()) {
+                damage += Math.max(0, stack.getDamageValue());
             }
         }
-        return remaining;
+        return damage;
     }
 }
