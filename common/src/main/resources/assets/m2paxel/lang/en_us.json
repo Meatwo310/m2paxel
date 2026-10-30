@@ -13,5 +13,7 @@
   "item.m2paxel.iron_phaxel": "Iron Phaxel",
   "item.m2paxel.golden_phaxel": "Golden Phaxel",
   "item.m2paxel.diamond_phaxel": "Diamond Phaxel",
-  "item.m2paxel.netherite_phaxel": "Netherite Phaxel"
+  "item.m2paxel.netherite_phaxel": "Netherite Phaxel",
+  "tooltip.m2paxel.on_right_click": "When Right-Clicked:",
+  "tooltip.m2paxel.phaxel.actions": "Axe, Shovel, and Hoe Actions"
 }

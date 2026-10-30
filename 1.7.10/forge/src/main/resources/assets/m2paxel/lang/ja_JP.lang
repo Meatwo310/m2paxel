@@ -9,3 +9,5 @@ item.m2paxel.stone_phaxel.name=石のファクセル
 item.m2paxel.iron_phaxel.name=鉄のファクセル
 item.m2paxel.golden_phaxel.name=金のファクセル
 item.m2paxel.diamond_phaxel.name=ダイヤモンドのファクセル
+
+tooltip.m2paxel.phaxel.till=右クリックで耕す

@@ -12,5 +12,7 @@
   "item.m2paxel.iron_phaxel": "鉄のファクセル",
   "item.m2paxel.golden_phaxel": "金のファクセル",
   "item.m2paxel.diamond_phaxel": "ダイヤモンドのファクセル",
-  "item.m2paxel.netherite_phaxel": "ネザライトのファクセル"
+  "item.m2paxel.netherite_phaxel": "ネザライトのファクセル",
+  "tooltip.m2paxel.on_right_click": "右クリックしたとき：",
+  "tooltip.m2paxel.phaxel.actions": "斧・シャベル・クワの機能"
 }
