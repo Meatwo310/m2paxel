@@ -1,5 +1,6 @@
 {
   "Exclude": [
-    "(^|/)src/generated/"
+    "(^|/)src/generated/",
+    "\\.pxc[0-9]*$"
   ]
 }
