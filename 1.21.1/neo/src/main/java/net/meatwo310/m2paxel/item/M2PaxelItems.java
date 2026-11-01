@@ -13,6 +13,7 @@ public final class M2PaxelItems {
 
     public static final DeferredItem<Item> WOODEN_PAXEL = paxel("wooden_paxel", Tiers.WOOD);
     public static final DeferredItem<Item> STONE_PAXEL = paxel("stone_paxel", Tiers.STONE);
+    public static final DeferredItem<Item> COPPER_PAXEL = paxel("copper_paxel", M2PaxelTiers.COPPER);
     public static final DeferredItem<Item> IRON_PAXEL = paxel("iron_paxel", Tiers.IRON);
     public static final DeferredItem<Item> GOLDEN_PAXEL = paxel("golden_paxel", Tiers.GOLD);
     public static final DeferredItem<Item> DIAMOND_PAXEL = paxel("diamond_paxel", Tiers.DIAMOND);
@@ -20,6 +21,7 @@ public final class M2PaxelItems {
 
     public static final DeferredItem<Item> WOODEN_PHAXEL = phaxel("wooden_phaxel", Tiers.WOOD);
     public static final DeferredItem<Item> STONE_PHAXEL = phaxel("stone_phaxel", Tiers.STONE);
+    public static final DeferredItem<Item> COPPER_PHAXEL = phaxel("copper_phaxel", M2PaxelTiers.COPPER);
     public static final DeferredItem<Item> IRON_PHAXEL = phaxel("iron_phaxel", Tiers.IRON);
     public static final DeferredItem<Item> GOLDEN_PHAXEL = phaxel("golden_phaxel", Tiers.GOLD);
     public static final DeferredItem<Item> DIAMOND_PHAXEL = phaxel("diamond_phaxel", Tiers.DIAMOND);

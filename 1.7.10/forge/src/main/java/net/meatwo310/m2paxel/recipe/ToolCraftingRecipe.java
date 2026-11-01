@@ -24,7 +24,11 @@ public final class ToolCraftingRecipe extends ShapelessOreRecipe {
 
     @Override
     public ItemStack getCraftingResult(InventoryCrafting input) {
-        ItemStack result = getRecipeOutput().copy();
+        return getCraftingResult(input, getRecipeOutput(), operation);
+    }
+
+    static ItemStack getCraftingResult(InventoryCrafting input, ItemStack output, ToolCraftingOperation operation) {
+        ItemStack result = output.copy();
         ItemStack base = null;
         for (int slot = 0; slot < input.getSizeInventory(); slot++) {
             ItemStack stack = input.getStackInSlot(slot);

@@ -7,6 +7,7 @@ import net.meatwo310.m2paxel.Constants;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
+import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -24,6 +25,19 @@ public final class M2PaxelRecipes {
                 @Override
                 public StreamCodec<RegistryFriendlyByteBuf, ShapelessRecipe> streamCodec() {
                     return ToolCraftingRecipe.STREAM_CODEC;
+                }
+            });
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ShapedRecipe>> TOOL_UPGRADE =
+            SERIALIZERS.register("tool_upgrade", () -> new RecipeSerializer<ShapedRecipe>() {
+                @Override
+                public MapCodec<ShapedRecipe> codec() {
+                    return ToolUpgradeRecipe.CODEC;
+                }
+
+                @Override
+                public StreamCodec<RegistryFriendlyByteBuf, ShapedRecipe> streamCodec() {
+                    return ToolUpgradeRecipe.STREAM_CODEC;
                 }
             });
 

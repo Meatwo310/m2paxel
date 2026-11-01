@@ -18,7 +18,11 @@ public final class ItemPhaxel extends ItemPaxel {
     private static final Set<String> TOOL_CLASSES = ImmutableSet.of("pickaxe", "axe", "shovel", "hoe");
 
     public ItemPhaxel(ToolMaterial material, String itemId) {
-        super(material, itemId);
+        this(material, itemId, 4.0D);
+    }
+
+    public ItemPhaxel(ToolMaterial material, String itemId, double attackDamageBaseline) {
+        super(material, itemId, attackDamageBaseline);
         setMaxDamage(material.getMaxUses() * 5);
         setHarvestLevel("hoe", material.getHarvestLevel());
     }

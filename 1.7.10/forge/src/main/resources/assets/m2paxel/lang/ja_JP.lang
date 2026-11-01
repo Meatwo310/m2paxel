@@ -1,5 +1,6 @@
 item.m2paxel.wooden_paxel.name=木のパクセル
 item.m2paxel.stone_paxel.name=石のパクセル
+item.m2paxel.copper_paxel.name=銅のパクセル
 item.m2paxel.iron_paxel.name=鉄のパクセル
 item.m2paxel.golden_paxel.name=金のパクセル
 item.m2paxel.diamond_paxel.name=ダイヤのパクセル
@@ -7,6 +8,7 @@ item.m2paxel.netherite_paxel.name=ネザライトのパクセル
 
 item.m2paxel.wooden_phaxel.name=木のファクセル
 item.m2paxel.stone_phaxel.name=石のファクセル
+item.m2paxel.copper_phaxel.name=銅のファクセル
 item.m2paxel.iron_phaxel.name=鉄のファクセル
 item.m2paxel.golden_phaxel.name=金のファクセル
 item.m2paxel.diamond_phaxel.name=ダイヤモンドのファクセル

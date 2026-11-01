@@ -27,6 +27,7 @@ public class PaxelItem extends Item {
     private static final Map<Tier, Float> AXE_ATTACK_DAMAGES = Map.of(
             Tiers.WOOD, 6.0F,
             Tiers.STONE, 7.0F,
+            M2PaxelTiers.COPPER, 7.0F,
             Tiers.GOLD, 6.0F,
             Tiers.IRON, 6.0F,
             Tiers.DIAMOND, 5.0F,

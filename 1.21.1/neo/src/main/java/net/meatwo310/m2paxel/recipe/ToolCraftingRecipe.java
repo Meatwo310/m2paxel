@@ -61,7 +61,10 @@ public final class ToolCraftingRecipe extends ShapelessRecipe {
 
     @Override
     public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
-        ItemStack result = displayRecipe.assemble(input, registries);
+        return assemble(input, displayRecipe.assemble(input, registries), operation);
+    }
+
+    static ItemStack assemble(CraftingInput input, ItemStack result, ToolCraftingOperation operation) {
         ItemStack base = ItemStack.EMPTY;
         for (ItemStack stack : input.items()) {
             if (stack.getItem() instanceof PaxelItem) {

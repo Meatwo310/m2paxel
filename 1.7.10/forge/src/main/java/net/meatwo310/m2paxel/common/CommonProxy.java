@@ -11,6 +11,7 @@ import net.meatwo310.m2paxel.common.item.M2PaxelItems;
 import net.meatwo310.m2paxel.compat.EfrRecipes;
 import net.meatwo310.m2paxel.recipe.ToolCraftingOperation;
 import net.meatwo310.m2paxel.recipe.ToolCraftingRecipe;
+import net.meatwo310.m2paxel.recipe.ToolUpgradeRecipe;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,6 +25,7 @@ public class CommonProxy {
 
         GameRegistry.registerItem(M2PaxelItems.WOODEN_PAXEL, "wooden_paxel");
         GameRegistry.registerItem(M2PaxelItems.STONE_PAXEL, "stone_paxel");
+        GameRegistry.registerItem(M2PaxelItems.COPPER_PAXEL, "copper_paxel");
         GameRegistry.registerItem(M2PaxelItems.IRON_PAXEL, "iron_paxel");
         GameRegistry.registerItem(M2PaxelItems.GOLDEN_PAXEL, "golden_paxel");
         GameRegistry.registerItem(M2PaxelItems.DIAMOND_PAXEL, "diamond_paxel");
@@ -31,6 +33,7 @@ public class CommonProxy {
 
         GameRegistry.registerItem(M2PaxelItems.WOODEN_PHAXEL, "wooden_phaxel");
         GameRegistry.registerItem(M2PaxelItems.STONE_PHAXEL, "stone_phaxel");
+        GameRegistry.registerItem(M2PaxelItems.COPPER_PHAXEL, "copper_phaxel");
         GameRegistry.registerItem(M2PaxelItems.IRON_PHAXEL, "iron_phaxel");
         GameRegistry.registerItem(M2PaxelItems.GOLDEN_PHAXEL, "golden_phaxel");
         GameRegistry.registerItem(M2PaxelItems.DIAMOND_PHAXEL, "diamond_phaxel");
@@ -54,6 +57,16 @@ public class CommonProxy {
             Items.golden_sword, Items.golden_pickaxe, Items.golden_shovel, Items.golden_axe, Items.golden_hoe);
         registerToolRecipes(M2PaxelItems.DIAMOND_PAXEL, M2PaxelItems.DIAMOND_PHAXEL,
             Items.diamond_sword, Items.diamond_pickaxe, Items.diamond_shovel, Items.diamond_axe, Items.diamond_hoe);
+
+        GameRegistry.addRecipe(new ToolUpgradeRecipe(M2PaxelItems.COPPER_PAXEL,
+            M2PaxelItems.WOODEN_PAXEL, "ingotCopper"));
+        GameRegistry.addRecipe(new ToolUpgradeRecipe(M2PaxelItems.COPPER_PHAXEL,
+            M2PaxelItems.WOODEN_PHAXEL, "ingotCopper"));
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.COPPER_PHAXEL),
+            ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.COPPER_PAXEL),
+            ignoreDamage(Items.wooden_hoe)));
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.COPPER_PAXEL),
+            ToolCraftingOperation.REMOVE_HOE, ignoreDamage(M2PaxelItems.COPPER_PHAXEL)));
 
         if (Loader.isModLoaded("etfuturum")) {
             EfrRecipes.registerNetheriteUpgrades();

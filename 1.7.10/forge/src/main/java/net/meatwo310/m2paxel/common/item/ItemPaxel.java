@@ -23,7 +23,15 @@ public class ItemPaxel extends ItemPickaxe {
         this(material, ModMain.MODID, itemId);
     }
 
+    public ItemPaxel(ToolMaterial material, String itemId, double attackDamageBaseline) {
+        this(material, ModMain.MODID, itemId, attackDamageBaseline);
+    }
+
     public ItemPaxel(ToolMaterial material, String modId, String itemId) {
+        this(material, modId, itemId, 4.0D);
+    }
+
+    private ItemPaxel(ToolMaterial material, String modId, String itemId, double attackDamageBaseline) {
         super(material);
 
         this.setUnlocalizedName(modId + "." + itemId);
@@ -33,7 +41,7 @@ public class ItemPaxel extends ItemPickaxe {
         this.setHarvestLevel("axe", material.getHarvestLevel());
         this.setHarvestLevel("shovel", material.getHarvestLevel());
 
-        this.weaponDamage = 4.0D + material.getDamageVsEntity();
+        this.weaponDamage = attackDamageBaseline + material.getDamageVsEntity();
     }
 
     // thanks mekanism
@@ -54,6 +62,13 @@ public class ItemPaxel extends ItemPickaxe {
 
     @Override
     public boolean getIsRepairable(ItemStack tool, ItemStack material) {
+        if (toolMaterial == M2PaxelItems.COPPER_MATERIAL) {
+            for (ItemStack ingot : OreDictionary.getOres("ingotCopper")) {
+                if (OreDictionary.itemMatches(ingot, material, false)) {
+                    return true;
+                }
+            }
+        }
         if (toolMaterial == M2PaxelItems.NETHERITE_MATERIAL) {
             for (String name : new String[]{"ingotNetherite", "NetheriteIngot"}) {
                 for (ItemStack ingot : OreDictionary.getOres(name)) {
