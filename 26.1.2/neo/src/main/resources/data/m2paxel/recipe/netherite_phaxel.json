@@ -4,7 +4,7 @@
   "group": "phaxel",
   "ingredients": [
     "m2paxel:netherite_paxel",
-    "minecraft:netherite_hoe"
+    "minecraft:diamond_hoe"
   ],
   "result": {
     "id": "m2paxel:netherite_phaxel",
