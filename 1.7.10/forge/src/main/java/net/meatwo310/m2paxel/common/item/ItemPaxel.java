@@ -71,6 +71,10 @@ public class ItemPaxel extends ItemPickaxe {
         return toolClasses;
     }
 
+    public boolean allowsRightClickToolActions() {
+        return false;
+    }
+
     @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers() {
         Multimap<String, AttributeModifier> multimap = HashMultimap.create();

@@ -1,5 +1,6 @@
 package net.meatwo310.m2paxel.common;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -7,6 +8,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.meatwo310.m2paxel.common.event.CommonEvents;
 import net.meatwo310.m2paxel.common.item.M2PaxelItems;
+import net.meatwo310.m2paxel.compat.EfrRecipes;
 import net.meatwo310.m2paxel.recipe.ToolCraftingOperation;
 import net.meatwo310.m2paxel.recipe.ToolCraftingRecipe;
 import net.minecraft.init.Items;
@@ -53,16 +55,22 @@ public class CommonProxy {
         registerToolRecipes(M2PaxelItems.DIAMOND_PAXEL, M2PaxelItems.DIAMOND_PHAXEL,
             Items.diamond_sword, Items.diamond_pickaxe, Items.diamond_shovel, Items.diamond_axe, Items.diamond_hoe);
 
-        for (String ingot : new String[]{"ingotNetherite", "NetheriteIngot"}) {
-            GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PAXEL),
-                ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.DIAMOND_PAXEL), ingot));
-            GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PHAXEL),
-                ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.DIAMOND_PHAXEL), ingot));
+        if (Loader.isModLoaded("etfuturum")) {
+            EfrRecipes.registerNetheriteUpgrades();
         }
+        registerNetheriteUpgrades("ingotNetherite");
+        registerNetheriteUpgrades("NetheriteIngot");
         GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PHAXEL),
             ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.NETHERITE_PAXEL), ignoreDamage(Items.diamond_hoe)));
         GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PAXEL),
             ToolCraftingOperation.REMOVE_HOE, ignoreDamage(M2PaxelItems.NETHERITE_PHAXEL)));
+    }
+
+    private static void registerNetheriteUpgrades(String ingot) {
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PAXEL),
+            ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.DIAMOND_PAXEL), ingot));
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PHAXEL),
+            ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.DIAMOND_PHAXEL), ingot));
     }
 
     private static void registerToolRecipes(Item paxel, Item phaxel, Item sword, Item pickaxe,

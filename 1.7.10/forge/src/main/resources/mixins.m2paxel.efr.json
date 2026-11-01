@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "net.meatwo310.m2paxel.mixin.efr",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": []
+}

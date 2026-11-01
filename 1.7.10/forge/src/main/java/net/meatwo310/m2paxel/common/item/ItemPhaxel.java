@@ -1,6 +1,7 @@
 package net.meatwo310.m2paxel.common.item;
 
 import com.google.common.collect.ImmutableSet;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,10 +29,18 @@ public final class ItemPhaxel extends ItemPaxel {
     }
 
     @Override
+    public boolean allowsRightClickToolActions() {
+        return true;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("tooltip.m2paxel.phaxel.till"));
+        if (Loader.isModLoaded("etfuturum")) {
+            tooltip.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("tooltip.m2paxel.phaxel.efr_actions"));
+        }
     }
 
     @Override

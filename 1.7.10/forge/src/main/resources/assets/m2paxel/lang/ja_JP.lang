@@ -13,3 +13,4 @@ item.m2paxel.diamond_phaxel.name=ダイヤモンドのファクセル
 item.m2paxel.netherite_phaxel.name=ネザライトのファクセル
 
 tooltip.m2paxel.phaxel.till=右クリックで耕す
+tooltip.m2paxel.phaxel.efr_actions=[EFR] 斧・シャベルの機能に対応
