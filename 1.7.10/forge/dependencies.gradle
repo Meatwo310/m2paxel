@@ -34,6 +34,9 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
+    runtimeOnlyNonPublishable(rfg.deobf("curse.maven:et-futurum-requiem-441392:5873837"))
+    runtimeOnlyNonPublishable(rfg.deobf("curse.maven:netheriteplus-376911:2983061"))
+
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.69-GTNH:dev")
 
     runtimeOnlyNonPublishable("curse.maven:waila-73488:2230518")

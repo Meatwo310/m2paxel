@@ -25,12 +25,14 @@ public class CommonProxy {
         GameRegistry.registerItem(M2PaxelItems.IRON_PAXEL, "iron_paxel");
         GameRegistry.registerItem(M2PaxelItems.GOLDEN_PAXEL, "golden_paxel");
         GameRegistry.registerItem(M2PaxelItems.DIAMOND_PAXEL, "diamond_paxel");
+        GameRegistry.registerItem(M2PaxelItems.NETHERITE_PAXEL, "netherite_paxel");
 
         GameRegistry.registerItem(M2PaxelItems.WOODEN_PHAXEL, "wooden_phaxel");
         GameRegistry.registerItem(M2PaxelItems.STONE_PHAXEL, "stone_phaxel");
         GameRegistry.registerItem(M2PaxelItems.IRON_PHAXEL, "iron_phaxel");
         GameRegistry.registerItem(M2PaxelItems.GOLDEN_PHAXEL, "golden_phaxel");
         GameRegistry.registerItem(M2PaxelItems.DIAMOND_PHAXEL, "diamond_phaxel");
+        GameRegistry.registerItem(M2PaxelItems.NETHERITE_PHAXEL, "netherite_phaxel");
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
@@ -50,6 +52,17 @@ public class CommonProxy {
             Items.golden_sword, Items.golden_pickaxe, Items.golden_shovel, Items.golden_axe, Items.golden_hoe);
         registerToolRecipes(M2PaxelItems.DIAMOND_PAXEL, M2PaxelItems.DIAMOND_PHAXEL,
             Items.diamond_sword, Items.diamond_pickaxe, Items.diamond_shovel, Items.diamond_axe, Items.diamond_hoe);
+
+        for (String ingot : new String[]{"ingotNetherite", "NetheriteIngot"}) {
+            GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PAXEL),
+                ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.DIAMOND_PAXEL), ingot));
+            GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PHAXEL),
+                ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.DIAMOND_PHAXEL), ingot));
+        }
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PHAXEL),
+            ToolCraftingOperation.COMBINE, ignoreDamage(M2PaxelItems.NETHERITE_PAXEL), ignoreDamage(Items.diamond_hoe)));
+        GameRegistry.addRecipe(new ToolCraftingRecipe(new ItemStack(M2PaxelItems.NETHERITE_PAXEL),
+            ToolCraftingOperation.REMOVE_HOE, ignoreDamage(M2PaxelItems.NETHERITE_PHAXEL)));
     }
 
     private static void registerToolRecipes(Item paxel, Item phaxel, Item sword, Item pickaxe,

@@ -3,18 +3,16 @@ package net.meatwo310.m2paxel.recipe;
 import net.meatwo310.m2paxel.common.item.ItemPaxel;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-import java.util.Arrays;
-
-/** Keeps the standard shapeless ingredient list so NEI can display every recipe. */
-public final class ToolCraftingRecipe extends ShapelessRecipes {
+/** Keeps the Forge ore recipe ingredient list so NEI can display every recipe. */
+public final class ToolCraftingRecipe extends ShapelessOreRecipe {
     private final ToolCraftingOperation operation;
 
-    public ToolCraftingRecipe(ItemStack output, ToolCraftingOperation operation, ItemStack... ingredients) {
-        super(output, Arrays.asList(ingredients));
+    public ToolCraftingRecipe(ItemStack output, ToolCraftingOperation operation, Object... ingredients) {
+        super(output, ingredients);
         this.operation = operation;
     }
 
@@ -54,7 +52,7 @@ public final class ToolCraftingRecipe extends ShapelessRecipes {
         long damage = 0;
         for (int slot = 0; slot < input.getSizeInventory(); slot++) {
             ItemStack stack = input.getStackInSlot(slot);
-            if (stack != null) {
+            if (stack != null && stack.getMaxDamage() > 0) {
                 damage += Math.max(0, stack.getItemDamage());
             }
         }

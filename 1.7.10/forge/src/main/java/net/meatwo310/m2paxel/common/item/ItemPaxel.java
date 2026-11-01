@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.Set;
 
@@ -49,6 +50,20 @@ public class ItemPaxel extends ItemPickaxe {
         }
 
         return super.canHarvestBlock(block, stack);
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack tool, ItemStack material) {
+        if (toolMaterial == M2PaxelItems.NETHERITE_MATERIAL) {
+            for (String name : new String[]{"ingotNetherite", "NetheriteIngot"}) {
+                for (ItemStack ingot : OreDictionary.getOres(name)) {
+                    if (OreDictionary.itemMatches(ingot, material, false)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return super.getIsRepairable(tool, material);
     }
 
     @Override
